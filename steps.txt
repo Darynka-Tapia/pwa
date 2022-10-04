@@ -1,0 +1,42 @@
+Biografia 
+https://www.youtube.com/watch?v=GQ_t9bvdnNA&ab_channel=LuisCabreraBenito
+https://parzibyte.me/blog/2021/11/23/crear-publicar-progressive-web-app-convertir-app-web-pwa/
+
+1. Crear un archivo html simple 
+2. Crear archivo para scrip (se editara más adelante)
+3. Crear archivo manifest.json - Aqui se colocaran los detalles de a app
+   descripcion algunos puntos del manifest: 
+   "display": "standalone", // Modo en el que se va a instalar  la app
+   "orientation": "portrait", // la orientacion de la app en el telefono
+4. Agregar el service worker desde el cmd 
+   comando: npm install workbox-cli --global
+   esta herramienta permite que podamos generar un archivo 
+   de configuracion y a partir de este, crear el service worker
+5. entrar a la ruta del proyecto en el cmd
+6. Ejecutar el comando workbox wizard (es un asistente de configuracion,
+   el cual hara preguntas para tu configuracion adecuada)
+
+   .- Please enter the path to the root dof yoy web app:  (.) solo dar enter para dejar default 
+   .- Whitch file types would you like to precache: dejar todos seleccionados
+   .- Where would you like your service worker file to be saved? solo dar enter para dejar default 
+   .- Where would you like to save these configuration options? solo dar enter para dejar default 
+   .- Does your web app manifest include search parameter(s) in the 'start_url', other than 'utm_' or 'fbclid' (like '?source=pwa')? (y/N) Responder N
+
+   Si se realizo todo correctamente, el archivo workbox-config.json se debio haber generado automaticamente 
+
+7. Generar Service Worked con el comando: workbox generateSW workbox-config.js
+8. Despues de haber generado el servis Worked, agregar el siguiente spcript en el head 
+   <script type="text/javascript">
+      if ("serviceWorker" in navigator) {
+         navigator.serviceWorker.register("sw.js");
+      }
+   </script>
+
+
+   Nota: Opciones para desplegar app: 
+   .- Github pages (facil)
+   .- Firebase (intermedio)
+
+
+
+
